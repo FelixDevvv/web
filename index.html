@@ -1,18 +1,307 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&family=Kavoon&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
     <title>FelixDevYT - Bienvenido</title>
     <style>
-      h1 {
-        font-family: "Climate Crisis", serif;
-        font-weight: 400;
-        font-style: normal;
+      :root {
+        --primario: #006eff;
+        --secundario: #3eb8ff;
+        --fondo-card: rgba(255, 255, 255, 0.14);
+        --texto-blanco: #f8faff;
+        --texto-oscuro: #1a1f3a;
+        --sombra: 0 20px 60px rgba(0, 0, 0, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Pixelify Sans", sans-serif;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 25%),
+          radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.15), transparent 22%),
+          linear-gradient(135deg, var(--primario), var(--secundario));
+        color: var(--texto-blanco);
+        overflow-x: hidden;
+      }
+
+      header {
+        padding: 24px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .logo {
+        font-size: 1.45rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--texto-blanco);
+        font-weight: 500;
+        transition: color 0.25s ease, transform 0.25s ease;
+      }
+
+      nav a:hover {
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      .container {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 32px 24px 64px;
+      }
+
+      .hero {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        gap: 18px;
+        padding: 36px 0 48px;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .hero img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.26);
+        box-shadow: var(--sombra);
+        object-fit: cover;
+        animation: popIn 0.8s ease-out;
+      }
+
+      .hero h1,
+      .hero h2,
+      .hero p {
+        margin: 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        letter-spacing: 0.02em;
+      }
+
+      .hero h2 {
+        font-size: 1.05rem;
+        max-width: 760px;
+        margin: 0 auto;
+        opacity: 0.92;
+      }
+
+      .social-panel {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 28px 0 16px;
+      }
+
+      .social-panel a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 14px 20px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--texto-blanco);
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        font-size: 0.96rem;
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .social-panel a:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .social-panel a span {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        text-align: center;
+        margin: 40px 0 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .cards {
+        display: grid;
+        gap: 24px;
+        padding: 8px 0 40px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 28px;
+        box-shadow: var(--sombra);
+        padding: 28px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      .card h2 {
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .card p {
+        margin: 10px 0;
+        opacity: 0.86;
+        line-height: 1.7;
+      }
+
+      .url-output {
+        text-align: center;
+        margin-top: 16px;
+        color: #f0f9ff;
+        font-size: 0.98rem;
+        min-height: 1.4em;
+      }
+
+      @media (min-width: 768px) {
+        .hero {
+          padding-top: 58px;
+        }
+
+        .cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.85);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Bienvenido a mi web/portafolio</h1>
+    <header>
+      <div class="logo">FelixDevYT</div>
+      <nav>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#redes">Redes Sociales</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <img src="https://yt3.googleusercontent.com/ehj4LT7AJEXVHy4uG__OtDLAS-_vKX2cs7uOWdw5MWrQdfw92uMZRJ4pnlaZtI8Ppw0ptdkCYwA=s160-c-k-c0x00ffffff-no-rj" alt="Imagen de perfil" />
+        <h1>Bienvenido a mi web/portafolio</h1>
+        <h2>Hola, esta es mi web/portafolio. Aquí podrás encontrar mis proyectos, mis redes sociales y más información sobre mí.</h2>
+      </section>
+
+      <section id="redes">
+        <p class="section-title">Redes Sociales</p>
+        <div class="social-panel">
+          <a href="https://youtube.com/@FelixDevYT" target="_blank" rel="noopener noreferrer">
+            <span>▶</span> YouTube
+          </a>
+          <a href="https://tiktok.com/@FelixDevYT" target="_blank" rel="noopener noreferrer">
+            <span>🎵</span> TikTok
+          </a>
+          <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
+            <span>💬</span> Discord
+          </a>
+          <a href="https://twitch.tv/FelixYFrancarlos" target="_blank" rel="noopener noreferrer">
+            <span>🎮</span> Twitch
+          </a>
+        </div>
+      </section>
+
+      <section id="proyectos">
+        <p class="section-title">Proyectos</p>
+        <div class="cards">
+          <article class="card">
+            <h2>SolvianMC Network</h2>
+            <p>Un servidor de Minecraft con contenido exclusivo, una comunidad activa y modos únicos que te invitan a volver.</p>
+            <p>Nuestras modalidades son: Survival SemiVanilla, Gens Leyends y más pronto.</p>
+          </article>
+          <article class="card">
+            <h2>HilyCraft Network</h2>
+            <p>Un servidor de Minecraft amigable y seguro con compatibilidad Bedrock/Java para jugadores de todas partes.</p>
+            <p>Modalidades: Survival PVP, Gens y LatamBox.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <p class="section-title">Contacto</p>
+        <div class="card">
+          <p>Gmail: e.felixdev@gmail.com</p>
+          <p>Discord: FelixDevYT</p>
+          <p>¡No dudes en contactarme para cualquier consulta o colaboración!</p>
+        </div>
+      </section>
+
+      <section id="portafolio">
+        <p class="section-title">Portafolio</p>
+        <div class="card">
+          <p>¡Bienvenido a mi portafolio! Aquí puedes encontrar información sobre mis habilidades.</p>
+            <p><strong>Habilidades:</strong></p>
+            <ul>
+              <li>Desarrollo de plugins para Minecraft (Spigot, Paper) (Intermedio)</li>
+              <li>Desarrollo web (HTML, CSS, JavaScript, Python) (Principiante)</li>
+              <li>Configurador de servidores de Minecraft (Paper, Spigot, Purpur, Folia, Mohist)</li>
+              <li>Creación de contenido para redes sociales (Pequeño)</li>
+            </ul>
+            <p><strong>Experiencia:</strong></p>
+            <ul>
+              <li>Desarrollo de plugins para servidores de Minecraft desde 2025</li>
+              <li>Gestión y configuración de servidores de Minecraft desde 2022</li>
+              <li>Creación de contenido para redes sociales desde 2021 (En otro canal)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p style="text-align: center; opacity: 0.6; font-size: 0.9rem; margin-top: 40px;">© 2026 FelixDevYT. Todos los derechos reservados.</p>
+      </footer>
+    </main>
   </body>
 </html>
